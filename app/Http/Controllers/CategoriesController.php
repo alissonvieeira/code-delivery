@@ -37,4 +37,19 @@ class CategoriesController extends Controller
 
         return redirect()->route('admin.categories.index');
     }
+
+    public function edit($id)
+    {
+        $category = $this->repository->find($id);
+
+        return view('admin.categories.edit', compact('category'));
+    }
+
+    public function update(AdminCategoryRequest $request, $id)
+    {
+        $data = $request->all();
+        $this->repository->update($data, $id);
+
+        return redirect()->route('admin.categories.index');
+    }
 }
