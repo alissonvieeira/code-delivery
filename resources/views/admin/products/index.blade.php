@@ -13,6 +13,7 @@
                     <th>ID</th>
                     <th>Produto</th>
                     <th>Categoria</th>
+                    <th>Preço</th>
                     <th>Ação</th>
                 </tr>
             </thead>
@@ -22,8 +23,9 @@
                         <td>{{ $product->id }}</td>
                         <td>{{ $product->name }}</td>
                         <td>{{ $product->category->name }}</td>
+                        <td>{{ $product->price }}</td>
                         <td>
-                            <a href="{{ route('admin.categories.edit', ['id' => $product->id]) }}" class="btn btn-default btn-sm">
+                            <a href="{{ route('admin.products.edit', ['id' => $product->id]) }}" class="btn btn-default btn-sm">
                                 Editar
                             </a>
                         </td>
