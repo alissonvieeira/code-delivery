@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(['prefix' => 'admin', 'as' => 'admin.'], function(){
+Route::group(['prefix' => 'admin', 'middleware' => 'auth.checkrole', 'as' => 'admin.'], function(){
 
     Route::group(['prefix' => 'categories', 'as' => 'categories.'], function(){
         Route::get('', ['as' => 'index', 'uses' => 'CategoriesController@index']);
